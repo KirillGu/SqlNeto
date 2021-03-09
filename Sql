@@ -1,0 +1,27 @@
+create table if not exists Tracks (
+	id serial primary key,
+	AlbumID varchar (4) not null,
+	Title varchar (4) not null,
+	Tim decimal (10)
+
+)
+;
+
+create table if not exists Albums (
+	id serial primary key,
+	AlbumId varchar (4) not null,
+	ArtistID varchar (4) not null,
+	AlbumName varchar (4) not null,
+	year decimal (4) not null,
+	TracksId integer references Tracks(Id)
+
+)
+;
+
+create table if not exists Artist (
+	id serial primary key,
+	ArtistId varchar (4) not null,
+	Name varchar (4) not null,
+	AlbumsId integer references Albums(Id)
+)
+;
